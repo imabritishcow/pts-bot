@@ -20,7 +20,7 @@ module.exports = {
       }
     }
 
-    User.findOne({ id: message.author.id }, function (err, user) {
+    User.findOne({ id: userID }, function (err, user) {
       if (err) return message.channel.send(errorMessage.setDescription('An error occurred.'));
 
       if (!user) return message.channel.send(errorMessage.setDescription('pts account not found. Make one using /newac'));
