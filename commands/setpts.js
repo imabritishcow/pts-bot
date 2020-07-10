@@ -21,7 +21,7 @@ module.exports = {
       user.pts = args[2]*1;
       user.save();
 
-      message.channel.send(successMessage.setDescription(`Points set to ${args[2]} for \`<@${message.mentions.users.first().username}>\``));
+      message.channel.send(successMessage.setDescription(`Points set to ${args[2]} for \`${message.mentions.users.first().username}\``));
     })
   }
 }
