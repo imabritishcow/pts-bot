@@ -7,7 +7,7 @@ module.exports = {
   execute(message, User) {
     let errorMessage = new Discord.MessageEmbed().setTitle(':x: **Error**').setColor(0xdc2e44).setFooter('pts', 'https://cdn.bcow.tk/logos/pts.png');
 
-    User.find({}).sort({ pts: 'asc' }).exec(async function (err, users) {
+    User.find({}).sort({ pts: 'desc' }).exec(async function (err, users) {
       if (err) return message.channel.send(errorMessage.setDescription('An error occurred.'));
     
       let userList = [];
