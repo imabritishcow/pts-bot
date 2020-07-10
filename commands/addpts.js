@@ -10,10 +10,10 @@ module.exports = {
     
     if (!config.BOT_ADMINS.includes(message.author.id)) return message.channel.send('You do not have permission to run this command')
     if (!message.mentions.users.first()) return message.channel.send(errorMessage.setDescription('Command usage: /addpts [user] [amount]'))
-    if (!args[2]) return message.channel.send(':x: **Error** Command usage: /addpoints [user] [amount]')
+    if (!args[2]) return message.channel.send(':x: **Error** Command usage: /addpts [user] [amount]')
     if (!isFinite(args[2])) return message.channel.send(errorMessage.setDescription('Command usage: /addpts [user] [number] <- Needs to be a number'))
 
-    User.findOne({ id: message.author.id }, function (err, user) {
+    User.findOne({ id: message.mentions.users.first().id }, function (err, user) {
       if (err) return message.channel.send(errorMessage.setDescription('An error occurred.'));
 
       if (!user) return message.channel.send(errorMessage.setDescription('pts account not found. Make one using /newac'));
@@ -23,7 +23,7 @@ module.exports = {
       user.pts = newPts;
       user.save();
 
-      message.channel.send(successMessage.setDescription(`Added ${args[2]} points for \`${message.author.username}\``));
+      message.channel.send(successMessage.setDescription(`Added ${args[2]} points for \`${message.mentions.users.first().username}\``));
     })
   }
 };
