@@ -23,8 +23,7 @@ module.exports = {
       user.pts = newPts;
       user.save();
 
-      message.channel.send(successMessage.setDescription(`Added ${args[2]} points for \`${message.author.username}\``))
-      path.update(pointsToAddd);
+      message.channel.send(successMessage.setDescription(`Added ${args[2]} points for \`${message.author.username}\``));
     })
   }
 };
