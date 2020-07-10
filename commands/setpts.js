@@ -19,8 +19,9 @@ module.exports = {
       if (!user) return message.channel.send(errorMessage.setDescription('pts account not found. Make one using /newac'));
 
       user.pts = args[2]*1;
+      user.save();
 
-      message.channel.send(successMessage.setDescription(`Points set to ${args[2]} for <@${message.mentions.users.first().id}>`))
+      message.channel.send(successMessage.setDescription(`Points set to ${args[2]} for \`<@${message.mentions.users.first().username}>\``));
     })
   }
 }
