@@ -33,6 +33,7 @@ const PREFIX = '/';
 
 client.on('ready', () => {
 	console.log('Started bot');
+	client.user.setActivity("/pts");
 });
 
 client.on('userUpdate', (oldUser, newUser) => {
