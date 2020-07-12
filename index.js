@@ -54,7 +54,9 @@ client.on('messageDelete', (message) => {
 		.addField('Sent by', `<@${message.author.id}>`)
 		.addField('Message', message.content)
 		.setFooter(moment(today).tz('America/New_York').format('L h:mm A z'));
-	client.channels.get('686360592357130342').send(embed);
+	client.channels.fetch('686360592357130342').then(channel => {
+		channel.send(embed);
+	})
 });
 
 client.on('message', (message) => {
